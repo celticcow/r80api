@@ -8,7 +8,7 @@ import sys
 Collection of Functions to do CheckPoint R80.xx api calls
 
 Created : 08.12.2019 -- gdunlap
-Last Update : 02.06.2020 -- gdunlap
+Last Update : 06.15.2020 -- gdunlap
 
 version 1.1
 
@@ -472,7 +472,7 @@ def object_is_locked(ip_addr, name, sid):
         "details-level" : "full"      
     }
     
-    obj_result = apifunctions.api_call(ip_addr, "show-objects", check_object, sid)
+    obj_result = api_call(ip_addr, "show-objects", check_object, sid)
 
     if(debug == 1):
         print(json.dumps(obj_result))

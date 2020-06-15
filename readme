@@ -1,0 +1,8 @@
+api repo
+
+06.15.20
+added object_is_locked() to both 
+
+apifunctions and apifunctions-python2
+
+copied to misc for testing first

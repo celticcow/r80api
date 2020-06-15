@@ -345,4 +345,30 @@ def add_a_range_with_group(ip_addr, name, startip, endip, group, sid):
             else:
                 print("object with taht name already exist")
 
+"""
+Check to see if an object is in a locked state or not
+"""
+def object_is_locked(ip_addr, name, sid):
+    debug = 0
+
+    if(debug == 1):
+        print("in object_is_locked()")
+
+    check_object = {
+        "order" : [{"ASC" : "name"}], 
+        "in" : ["name", name],
+        "details-level" : "full"      
+    }
+    
+    obj_result = apifunctions.api_call(ip_addr, "show-objects", check_object, sid)
+
+    if(debug == 1):
+        print(json.dumps(obj_result))
+        print("\n\n")
+    
+    if(obj_result['objects'][0]['meta-info']['lock'] == "unlocked"):
+        return True
+    else:
+        return False
+
 #end of file

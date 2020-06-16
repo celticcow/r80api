@@ -367,8 +367,10 @@ def object_is_locked(ip_addr, name, sid):
         print("\n\n")
     
     if(obj_result['objects'][0]['meta-info']['lock'] == "unlocked"):
-        return True
-    else:
+        # object is unlocked so it's not false to is_locked
         return False
+    else:
+        # default to locked
+        return True
 
 #end of file
